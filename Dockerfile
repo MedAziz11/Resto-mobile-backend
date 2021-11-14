@@ -25,5 +25,8 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
 COPY poetry.lock* pyproject.toml ./
 RUN poetry install --no-dev
 
-COPY . ./
+RUN chmod +x /start.sh
+
+COPY . .
 ENV PYTHONPATH=./
+CMD ["./start.sh"]
